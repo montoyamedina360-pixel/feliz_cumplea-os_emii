@@ -1,0 +1,638 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ffb5d0">
+<title>Una fiesta para Emii 🎂</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+    min-height:100vh;
+    min-height:100dvh;
+    overflow-x:hidden;
+    font-family:Georgia,serif;
+    color:#78435f;
+    background:linear-gradient(150deg,#ffe5f0,#f9d9ff,#dceaff);
+}
+
+#sky{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+}
+
+main{
+    position:relative;
+    z-index:2;
+    min-height:100vh;
+    min-height:100dvh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:24px 15px;
+}
+
+.page{
+    width:100%;
+    max-width:490px;
+    text-align:center;
+    animation:appear 1s ease;
+}
+
+.hidden{display:none!important}
+
+@keyframes appear{
+    from{opacity:0;transform:translateY(20px)}
+    to{opacity:1;transform:translateY(0)}
+}
+
+h1{
+    color:#d64e91;
+    font-size:clamp(36px,10vw,53px);
+    text-shadow:0 3px 0 white;
+    margin:12px 0;
+}
+
+h2{
+    color:#cb5d99;
+    font-size:26px;
+    margin-bottom:18px;
+}
+
+p{
+    font-size:16px;
+    line-height:1.8;
+    margin:15px auto;
+    max-width:380px;
+}
+
+button{
+    background:linear-gradient(120deg,#ed78aa,#bc7cda);
+    color:white;
+    border:2px solid white;
+    border-radius:40px;
+    padding:15px 25px;
+    font-family:Georgia,serif;
+    font-size:15px;
+    box-shadow:0 5px 18px #d57eae66;
+    cursor:pointer;
+    margin:10px 4px;
+    transition:.25s;
+}
+
+button:active{transform:scale(.94)}
+
+.eyebrow{
+    letter-spacing:3px;
+    font-size:11px;
+    color:#b56d9b;
+}
+
+.balloons{
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    margin:25px 0;
+}
+
+.balloon{
+    width:53px;
+    height:68px;
+    border-radius:50% 50% 46% 46%;
+    position:relative;
+    animation:balloon 2s ease-in-out infinite alternate;
+    box-shadow:inset -7px -6px 10px #00000015;
+}
+
+.balloon:after{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:66px;
+    height:55px;
+    border-left:1px solid #a879a0;
+}
+
+@keyframes balloon{
+    to{transform:translateY(-12px) rotate(5deg)}
+}
+
+/* PASTEL */
+
+.cake-area{
+    height:320px;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    align-items:center;
+    position:relative;
+    margin:15px 0 20px;
+}
+
+.candles{
+    display:flex;
+    gap:26px;
+    position:relative;
+    z-index:3;
+    margin-bottom:-2px;
+}
+
+.candle{
+    width:13px;
+    height:67px;
+    border-radius:4px 4px 0 0;
+    background:repeating-linear-gradient(
+        135deg,#fff 0 7px,#ef83b4 7px 14px
+    );
+    position:relative;
+    border:1px solid #e3a2bf;
+}
+
+.flame{
+    position:absolute;
+    width:19px;
+    height:27px;
+    background:radial-gradient(ellipse at 50% 70%,#fff6a4 0%,#ffb13d 50%,#ff7091 100%);
+    border-radius:50% 50% 45% 45%;
+    top:-27px;
+    left:-4px;
+    box-shadow:0 0 16px #ffb73d;
+    animation:flicker .5s infinite alternate;
+    transform-origin:bottom;
+}
+
+@keyframes flicker{
+    from{transform:rotate(-5deg) scale(.95)}
+    to{transform:rotate(5deg) scale(1.08)}
+}
+
+.tier{
+    position:relative;
+    border-radius:13px 13px 8px 8px;
+    box-shadow:inset 0 -9px 0 #0000000c,0 5px 10px #9c628533;
+    border:2px solid #ffffff;
+}
+
+.tier:before{
+    content:"";
+    position:absolute;
+    top:-8px;
+    left:-2px;
+    right:-2px;
+    height:17px;
+    border-radius:50%;
+    background:#fff5fb;
+    border:2px solid #ffffff;
+}
+
+.tier:after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    height:20px;
+    border-radius:50%;
+    background:#ffffff70;
+}
+
+.top{
+    width:135px;
+    height:65px;
+    background:#f7a9ca;
+    z-index:2;
+}
+
+.middle{
+    width:195px;
+    height:78px;
+    background:#b9a0ed;
+    margin-top:-4px;
+    z-index:1;
+}
+
+.bottom{
+    width:260px;
+    height:83px;
+    background:#f5a9bb;
+    margin-top:-4px;
+}
+
+.cake-plate{
+    width:290px;
+    height:14px;
+    border-radius:50%;
+    background:linear-gradient(#fff,#e8a7cf);
+    box-shadow:0 7px 12px #a96a9d44;
+    margin-top:3px;
+}
+
+.cake-decoration{
+    font-size:23px;
+    position:absolute;
+    z-index:4;
+    margin-top:5px;
+}
+
+.cake-label{
+    color:white;
+    font-weight:bold;
+    font-size:16px;
+    text-shadow:0 1px 4px #a44d84;
+    position:absolute;
+    bottom:20px;
+    z-index:5;
+}
+
+/* CONFETI */
+
+.confetti{
+    position:fixed;
+    z-index:10;
+    top:-15px;
+    pointer-events:none;
+    animation:fall linear forwards;
+}
+
+@keyframes fall{
+    to{transform:translateY(110vh) rotate(900deg);opacity:.2}
+}
+
+/* REGALO */
+
+.gift{
+    font-size:115px;
+    cursor:pointer;
+    display:inline-block;
+    animation:bounce 1.2s infinite alternate;
+    filter:drop-shadow(0 8px 8px #bd6e9a55);
+}
+
+@keyframes bounce{
+    to{transform:translateY(-12px) rotate(3deg)}
+}
+
+.card{
+    background:#ffffffb9;
+    border:2px solid white;
+    border-radius:24px;
+    padding:27px 20px;
+    box-shadow:0 10px 35px #bd8ab944;
+    margin:20px auto;
+}
+
+.card p{color:#81506d}
+
+.final-heart{
+    font-size:70px;
+    animation:beat 1s infinite;
+}
+
+@keyframes beat{
+    50%{transform:scale(1.17)}
+}
+
+.sparkle{
+    position:fixed;
+    pointer-events:none;
+    z-index:8;
+    animation:rise 2.8s forwards;
+}
+
+@keyframes rise{
+    to{transform:translateY(-170px) rotate(180deg);opacity:0}
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="sky"></div>
+
+<main>
+
+<!-- BIENVENIDA -->
+
+<section class="page" id="welcome">
+
+<div class="eyebrow">✧ UNA CELEBRACIÓN ESPECIAL ✧</div>
+
+<div style="font-size:75px;margin:20px">🎀</div>
+
+<h1>¡Es tu día, Emii!</h1>
+
+<p>
+Hoy el mundo tiene una razón más para llenarse
+de alegría, colores y sonrisas.
+</p>
+
+<div class="balloons">
+    <div class="balloon" style="background:#ff90b9"></div>
+    <div class="balloon" style="background:#b89aee;animation-delay:.3s"></div>
+    <div class="balloon" style="background:#ffcb8e;animation-delay:.6s"></div>
+    <div class="balloon" style="background:#9ed8d5;animation-delay:.2s"></div>
+</div>
+
+<p>Y preparé una pequeña fiesta solamente para ti. 💗</p>
+
+<button onclick="go('cake')">
+¡COMENZAR LA FIESTA! 🎉
+</button>
+
+<div class="eyebrow" style="margin-top:22px">
+HECHO CON MUCHO CARIÑO
+</div>
+
+</section>
+
+
+<!-- PASTEL -->
+
+<section class="page hidden" id="cake">
+
+<div class="eyebrow">✧ LLEGÓ EL MOMENTO MÁS DULCE ✧</div>
+
+<h2>Un pastel para ti 🎂</h2>
+
+<p>
+Antes de continuar, hay algo muy importante...
+</p>
+
+<div class="cake-area">
+
+    <div class="candles" id="candles">
+        <div class="candle"><div class="flame"></div></div>
+        <div class="candle"><div class="flame"></div></div>
+        <div class="candle"><div class="flame"></div></div>
+        <div class="candle"><div class="flame"></div></div>
+        <div class="candle"><div class="flame"></div></div>
+    </div>
+
+    <div class="tier top"></div>
+    <div class="tier middle"></div>
+    <div class="tier bottom"></div>
+    <div class="cake-plate"></div>
+
+    <div class="cake-decoration" style="bottom:95px">🍓 🌸 🍓</div>
+    <div class="cake-label">EMII ♥</div>
+
+</div>
+
+<h2 id="wishTitle">¡Pide un deseo! ✨</h2>
+
+<p id="wishText">
+Cierra los ojos por un instante,
+piensa en algo que desees con todo tu corazón...
+</p>
+
+<button id="blow" onclick="blowCandles()">
+¡SOPLAR LAS VELITAS! 💨
+</button>
+
+<button id="nextGift" class="hidden" onclick="go('gift')">
+¿QUÉ MÁS HAY? 🎁
+</button>
+
+</section>
+
+
+<!-- REGALO -->
+
+<section class="page hidden" id="gift">
+
+<div class="eyebrow">✧ HAY ALGO MÁS PARA TI ✧</div>
+
+<h2>Un pequeño regalo...</h2>
+
+<p>
+No todos los regalos vienen envueltos en papel.
+Este tiene un mensaje especial.
+</p>
+
+<div class="gift" onclick="openGift()" id="giftIcon">
+🎁
+</div>
+
+<p id="giftHint">Toca la cajita para descubrirlo. 💗</p>
+
+<div id="giftMessage" class="card hidden">
+    <div style="font-size:45px">💝</div>
+    <h2>¡Sorpresa, Emii!</h2>
+    <p>
+    Si pudiera regalarte algo más que un detalle,
+    sería un montón de momentos felices,
+    muchísimas razones para sonreír
+    y la oportunidad de cumplir cada uno
+    de tus sueños.
+    </p>
+    <p>
+    Porque alguien como tú merece
+    cosas verdaderamente bonitas.
+    </p>
+
+    <button onclick="go('final')">
+    DESCUBRIR LA ÚLTIMA SORPRESA ✨
+    </button>
+</div>
+
+</section>
+
+
+<!-- FINAL -->
+
+<section class="page hidden" id="final">
+
+<div class="eyebrow">✧ UN ÚLTIMO DESEO PARA TI ✧</div>
+
+<h1>¡Feliz cumpleaños!</h1>
+
+<div class="final-heart">💗</div>
+
+<div class="card">
+
+<h2>Querida Emii...</h2>
+
+<p>
+Que este nuevo año de vida venga lleno
+de aventuras, aprendizajes, personas bonitas
+y momentos que se conviertan en recuerdos.
+</p>
+
+<p>
+Que nunca pierdas esa manera tan tuya
+de iluminar los días.
+</p>
+
+<p>
+Y que siempre tengas presente
+lo valiosa y especial que eres.
+</p>
+
+<div style="font-size:36px;margin:20px">🌷✨🦋</div>
+
+<h2>¡Disfruta tu día!</h2>
+
+</div>
+
+<p style="font-style:italic;color:#ae6393">
+Con muchísimo cariño, para ti. ❤️
+</p>
+
+<div style="font-size:30px;margin:15px">
+🎂 🎈 🎀 🎉
+</div>
+
+<button onclick="restart()">VOLVER A CELEBRAR 🎊</button>
+
+</section>
+
+</main>
+
+<script>
+
+// CAMBIAR PANTALLAS
+
+function go(id){
+    document.querySelectorAll(".page").forEach(p=>{
+        p.classList.add("hidden");
+    });
+
+    document.getElementById(id).classList.remove("hidden");
+
+    window.scrollTo(0,0);
+
+    if(id==="gift") sparkle();
+    if(id==="final") celebrate();
+}
+
+// CONFETI
+
+function celebrate(){
+    for(let i=0;i<120;i++){
+        setTimeout(()=>{
+            const c=document.createElement("div");
+            c.className="confetti";
+            c.textContent=["🎉","💗","✨","🎀","🌸","⭐"][Math.floor(Math.random()*6)];
+            c.style.left=Math.random()*100+"vw";
+            c.style.animationDuration=(2+Math.random()*3)+"s";
+            c.style.fontSize=(13+Math.random()*17)+"px";
+            document.body.appendChild(c);
+            setTimeout(()=>c.remove(),5500);
+        },i*18);
+    }
+}
+
+// APAGAR VELITAS
+
+let candlesOff=false;
+
+function blowCandles(){
+    if(candlesOff)return;
+
+    candlesOff=true;
+
+    document.querySelectorAll(".flame").forEach(f=>{
+        f.style.display="none";
+    });
+
+    document.getElementById("wishTitle").textContent="¡Deseo concedido! 💗";
+    document.getElementById("wishText").textContent=
+    "Que todos tus deseos encuentren su camino. ¡Feliz cumpleaños, Emii!";
+
+    document.getElementById("blow").classList.add("hidden");
+    document.getElementById("nextGift").classList.remove("hidden");
+
+    celebrate();
+}
+
+// ABRIR REGALO
+
+function openGift(){
+    const gift=document.getElementById("giftIcon");
+    gift.textContent="💝";
+    gift.style.animation="none";
+
+    document.getElementById("giftHint").classList.add("hidden");
+    document.getElementById("giftMessage").classList.remove("hidden");
+
+    sparkle();
+    celebrate();
+}
+
+// DESTELLOS
+
+function sparkle(){
+    for(let i=0;i<30;i++){
+        setTimeout(()=>{
+            const s=document.createElement("div");
+            s.className="sparkle";
+            s.textContent=["✨","💗","⭐","🌸"][Math.floor(Math.random()*4)];
+            s.style.left=Math.random()*100+"vw";
+            s.style.top=(45+Math.random()*45)+"vh";
+            s.style.fontSize=(17+Math.random()*20)+"px";
+            document.body.appendChild(s);
+            setTimeout(()=>s.remove(),3000);
+        },i*65);
+    }
+}
+
+// GLOBOS FLOTANTES
+
+function balloonFloat(){
+    const b=document.createElement("div");
+    b.textContent=["🎈","💗","🎀","✨"][Math.floor(Math.random()*4)];
+    b.style.position="fixed";
+    b.style.bottom="-60px";
+    b.style.left=Math.random()*100+"vw";
+    b.style.fontSize=(20+Math.random()*20)+"px";
+    b.style.pointerEvents="none";
+    b.style.zIndex="1";
+    b.style.transition="transform 8s linear,opacity 8s";
+
+    document.body.appendChild(b);
+
+    requestAnimationFrame(()=>{
+        b.style.transform="translateY(-115vh) rotate(25deg)";
+        b.style.opacity="0";
+    });
+
+    setTimeout(()=>b.remove(),8500);
+}
+
+setInterval(balloonFloat,850);
+
+// REINICIAR
+
+function restart(){
+    candlesOff=false;
+
+    document.querySelectorAll(".flame").forEach(f=>{
+        f.style.display="block";
+    });
+
+    document.getElementById("wishTitle").textContent="¡Pide un deseo! ✨";
+    document.getElementById("wishText").textContent=
+    "Cierra los ojos por un instante, piensa en algo que desees con todo tu corazón...";
+
+    document.getElementById("blow").classList.remove("hidden");
+    document.getElementById("nextGift").classList.add("hidden");
+
+    document.getElementById("giftIcon").textContent="🎁";
+    document.getElementById("giftIcon").style.animation="";
+
+    document.getElementById("giftHint").classList.remove("hidden");
+    document.getElementById("giftMessage").classList.add("hidden");
+
+    go("welcome");
+}
+
+</script>
+
+</body>
+</html>
